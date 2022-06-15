@@ -3,6 +3,7 @@ module.exports = mongoose => {
     {
       produit: {type: String , required : true},
       nomProduit: String,
+      imageProduit: String,
       quantite: {type: Number , required : true},
       expertId: String,
       expertTel: String,

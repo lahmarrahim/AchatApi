@@ -28,11 +28,12 @@ exports.create = (req, res) => {
   const collection = mongoose.connection.db.collection("produits");
   collection.findOne({_id:mongoose.Types.ObjectId(id)}).then(data=>{
     achat.nomProduit = data.nom;
+    achat.imageProduit = data.image;
     achat.expertId = data.expertId;
     achat.expertTel = data.expertTel;
     achat.vendeurId = data.userId;
     achat.vendeurTel = data.userTel;
-    quantiteDispo = data.quantite;// it will print your collection data
+    quantiteDispo = data.quantite;
 
     if (quantiteDispo < req.body.quantite){
       res.status(400).send({ message: "La quantité demandée n'est pas disponible" });
